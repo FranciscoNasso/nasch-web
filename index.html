@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nasch Consultoría</title>
+<meta name="description" content="Nasch Consultoría asesora empresas en estrategia, finanzas, gobernanza y tecnología.">
+<style>
+  :root {
+    --navy: #10233f;
+    --navy-light: #1a3660;
+    --gold: #b8975a;
+    --bg: #f7f6f3;
+    --text: #1f2a37;
+    --text-muted: #5b6675;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+  header {
+    background: var(--navy);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+  }
+  .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .logo span { color: var(--gold); }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: #dfe4ea;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: #fff;
+    padding: 90px 24px 100px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    max-width: 780px;
+    margin: 0 auto 18px;
+  }
+  .hero p {
+    font-size: 1.15rem;
+    color: #cfd6e0;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 24px;
+  }
+  .section-title {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .section-subtitle {
+    color: var(--text-muted);
+    max-width: 640px;
+    margin-bottom: 40px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .about-grid p { margin-bottom: 16px; color: var(--text-muted); }
+  .about-card {
+    background: #fff;
+    border: 1px solid #e4e1da;
+    border-radius: 10px;
+    padding: 28px;
+  }
+  .about-card h3 {
+    color: var(--navy);
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+  .about-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 18px; }
+  .about-card p:last-child { margin-bottom: 0; }
+
+  .services {
+    background: #fff;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+  }
+  .service-card {
+    border: 1px solid #e4e1da;
+    border-radius: 10px;
+    padding: 28px 24px;
+    background: var(--bg);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(16, 35, 63, 0.08);
+  }
+  .service-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background: var(--navy);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+  .service-card h3 {
+    color: var(--navy);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  .service-card p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+
+  .contact {
+    background: var(--navy);
+    color: #fff;
+    text-align: center;
+  }
+  .contact .section-title { color: #fff; }
+  .contact .section-subtitle { color: #cfd6e0; margin: 0 auto 32px; }
+  .contact-links {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .contact-links a {
+    color: var(--navy);
+    background: var(--gold);
+    text-decoration: none;
+    padding: 12px 26px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+  }
+  .contact-links a:hover { opacity: 0.85; }
+  .contact-links a.secondary {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.4);
+  }
+
+  footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    background: var(--bg);
+  }
+
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">NASCH<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Asesoramos a empresas en estrategia, finanzas, gobernanza y tecnología</h1>
+  <p>Nasch Consultoría acompaña a organizaciones en decisiones clave, combinando visión de negocio con capacidad técnica para ejecutarlas.</p>
+</section>
+
+<section id="nosotros">
+  <h2 class="section-title">Quiénes somos</h2>
+  <p class="section-subtitle">Un equipo de consultoría enfocado en resultados concretos.</p>
+  <div class="about-grid">
+    <div>
+      <p>Nasch Consultoría trabaja junto a empresas para fortalecer su estrategia, ordenar sus finanzas y mejorar su gobernanza corporativa, siempre con foco en decisiones que se puedan ejecutar y medir.</p>
+      <p>A esto sumamos una mirada tecnológica: entendemos que hoy ninguna estrategia de negocio es completa sin una capa tecnológica bien pensada, y contamos con el perfil técnico dentro del equipo para acompañar esa parte de punta a punta.</p>
+      <p>También ofrecemos una línea comercial, ayudando a las empresas a estructurar y potenciar sus procesos de ventas y relacionamiento con clientes.</p>
+    </div>
+    <div class="about-card">
+      <h3>Estrategia</h3>
+      <p>Definición de rumbo y prioridades de negocio.</p>
+      <h3>Finanzas</h3>
+      <p>Orden financiero y toma de decisiones basada en datos.</p>
+      <h3>Gobernanza</h3>
+      <p>Estructuras de decisión claras y sostenibles.</p>
+      <h3>Tecnología</h3>
+      <p>Soluciones técnicas alineadas al negocio.</p>
+    </div>
+  </div>
+</section>
+
+<section id="servicios" class="services">
+  <h2 class="section-title">Servicios</h2>
+  <p class="section-subtitle">Acompañamos a nuestros clientes en las áreas que más impactan el crecimiento de una empresa.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">E</div>
+      <h3>Estrategia</h3>
+      <p>Diagnóstico, definición de objetivos y planes de acción concretos para el crecimiento del negocio.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">F</div>
+      <h3>Finanzas</h3>
+      <p>Análisis financiero, control de gestión y soporte en decisiones de inversión.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">G</div>
+      <h3>Gobernanza</h3>
+      <p>Diseño de estructuras de gobierno corporativo y procesos de decisión.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">T</div>
+      <h3>Tecnología</h3>
+      <p>Asesoramiento e implementación de soluciones tecnológicas a medida del negocio.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">C</div>
+      <h3>Comercial</h3>
+      <p>Estructuración de procesos comerciales y de relacionamiento con clientes.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact">
+  <h2 class="section-title">Contacto</h2>
+  <p class="section-subtitle">¿Querés conversar sobre tu empresa? Escribinos.</p>
+  <div class="contact-links">
+    <a href="mailto:mauricio@nasch.uy">Escribinos</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Nasch Consultoría. Todos los derechos reservados.
+</footer>
+
+</body>
+</html>
